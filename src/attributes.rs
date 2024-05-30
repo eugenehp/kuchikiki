@@ -1,3 +1,5 @@
+use std::hash::RandomState;
+
 use html5ever::{LocalName, Namespace, Prefix};
 use indexmap::{map::Entry, IndexMap};
 
@@ -5,7 +7,7 @@ use indexmap::{map::Entry, IndexMap};
 #[derive(Debug, PartialEq, Clone)]
 pub struct Attributes {
     /// A map of attributes whose name can have namespaces.
-    pub map: IndexMap<ExpandedName, Attribute>,
+    pub map: IndexMap<ExpandedName, Attribute, RandomState>,
 }
 
 /// <https://www.w3.org/TR/REC-xml-names/#dt-expname>
